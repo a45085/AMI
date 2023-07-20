@@ -1,0 +1,26 @@
+[
+  {
+    "id": "QPYXzqUXCpZKIbDxCiJvDVXVzHL2",
+    "notificationsActive": false,
+    "selectedHabits": [
+      {
+        "habitId": "habito1",
+        "description": "Custom description for Habit 1",
+        "repetition": true,
+        "weekdays": [
+          "Monday",
+          "Wednesday",
+          "Friday"
+        ],
+        "time": "morning"
+      },
+      {
+        "habitId": "habito3",
+        "description": "Custom description for Habit 3",
+        "repetition": false,
+        "weekdays": [],
+        "time": ""
+      }
+    ]
+  }
+]

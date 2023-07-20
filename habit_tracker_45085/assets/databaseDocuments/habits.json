@@ -1,0 +1,126 @@
+[
+  {
+    "id": "habito1",
+    "name": "Fazer a cama"
+  },
+  {
+    "id": "habito2",
+    "name": "Melhorar postura"
+  },
+  {
+    "id": "habito3",
+    "name": "Acordar cedo"
+  },
+  {
+    "id": "habito4",
+    "name": "Dormir 8 horas"
+  },
+  {
+    "id": "habito5",
+    "name": "Escrever no diário"
+  },
+  {
+    "id": "habito6",
+    "name": "Planear o dia de amanhã"
+  },
+  {
+    "id": "habito7",
+    "name": "Escovar os dentes"
+  },
+  {
+    "id": "habito8",
+    "name": "Comer fruta"
+  },
+  {
+    "id": "habito9",
+    "name": "Beber água"
+  },
+  {
+    "id": "habito10",
+    "name": "Restringir açúcar"
+  },
+  {
+    "id": "habito11",
+    "name": "Tomar vitaminas"
+  },
+  {
+    "id": "habito12",
+    "name": "Praticar afirmações"
+  },
+  {
+    "id": "habito13",
+    "name": "Respirar fundo"
+  },
+  {
+    "id": "habito14",
+    "name": "Conectar com a natureza"
+  },
+  {
+    "id": "habito15",
+    "name": "Eliminar distrações"
+  },
+  {
+    "id": "habito16",
+    "name": "Tirar um tempo para mim"
+  },
+  {
+    "id": "habito17",
+    "name": "Varrer o chão/aspirar"
+  },
+  {
+    "id": "habito18",
+    "name": "Arrumar a cama"
+  },
+  {
+    "id": "habito19",
+    "name": "Lavar a loiça"
+  },
+  {
+    "id": "habito20",
+    "name": "Levar o lixo para fora"
+  },
+  {
+    "id": "habito21",
+    "name": "Lavar a roupa"
+  },
+  {
+    "id": "habito22",
+    "name": "Ouvir um podcast"
+  },
+  {
+    "id": "habito23",
+    "name": "Exercitar a criatividade"
+  },
+  {
+    "id": "habito24",
+    "name": "Aprender uma língua nova"
+  },
+  {
+    "id": "habito25",
+    "name": "Definir objetivos"
+  },
+  {
+    "id": "habito26",
+    "name": "Ler"
+  },
+  {
+    "id": "habito27",
+    "name": "Pagar contas"
+  },
+  {
+    "id": "habito28",
+    "name": "Controlar despesas da semana"
+  },
+  {
+    "id": "habito29",
+    "name": "Doar"
+  },
+  {
+    "id": "habito30",
+    "name": "Cortar nos restaurantes"
+  },
+  {
+    "id": "habito31",
+    "name": "Fazer um orçamento"
+  }
+]

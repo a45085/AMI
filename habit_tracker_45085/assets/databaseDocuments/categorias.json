@@ -1,0 +1,69 @@
+[
+  {
+    "id": "categoria1",
+    "nome": "Auto-Disciplina",
+    "habitos": [
+      "habito1",
+      "habito2",
+      "habito3",
+      "habito4",
+      "habito5",
+      "habito6"
+    ]
+  },
+  {
+    "id": "categoria2",
+    "nome": "Saúde física",
+    "habitos": [
+      "habito7",
+      "habito8",
+      "habito9",
+      "habito10",
+      "habito11"
+    ]
+  },
+  {
+    "id": "categoria2",
+    "nome": "Saúde mental",
+    "habitos": [
+      "habito12",
+      "habito13",
+      "habito14",
+      "habito15",
+      "habito16"
+    ]
+  },
+  {
+    "id": "categoria2",
+    "nome": "Tarefas da casa",
+    "habitos": [
+      "habito17",
+      "habito18",
+      "habito19",
+      "habito20",
+      "habito21"
+    ]
+  },
+  {
+    "id": "categoria2",
+    "nome": "Produtividade",
+    "habitos": [
+      "habito22",
+      "habito23",
+      "habito24",
+      "habito25",
+      "habito26"
+    ]
+  },
+  {
+    "id": "categoria2",
+    "nome": "Finanças pessoais",
+    "habitos": [
+      "habito27",
+      "habito28",
+      "habito29",
+      "habito30",
+      "habito31"
+    ]
+  }
+]
