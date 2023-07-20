@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:habit_tracker_45085/utils/utils.dart';
 
 import '../theme/style.dart';
 
@@ -18,13 +19,6 @@ class ButtonTimeDay extends StatefulWidget {
 }
 
 class _ButtonTimeDayState extends State<ButtonTimeDay> {
-  List<String> calendarItems = [
-    'Diários',
-    'Manhã',
-    'Tarde',
-    'Noite',
-  ];
-
   int selectedButtonIndex = -1;
 
   @override
@@ -37,21 +31,9 @@ class _ButtonTimeDayState extends State<ButtonTimeDay> {
     if (widget.isInFormClass) {
       return 0; // Select the "Diários" button by default in the form class
     } else {
-      int currentHour = DateTime.now().hour;
-      int sel = 0;
-
-      if (currentHour >= 6 && currentHour < 12) {
-        sel = 1; // Morning
-      } else if (currentHour >= 12 && currentHour < 20) {
-        sel = 2; // Afternoon
-      } else {
-        sel = 3; // Night
-      }
-      return sel;
+      return int.parse(getSelectedButton()[1]);
     }
   }
-
-  DateTime currentDate = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -70,10 +52,10 @@ class _ButtonTimeDayState extends State<ButtonTimeDay> {
             TextButton(
               style: buttonStyle,
               onPressed: () {
+                widget.onTimeOfDaySelected(calendarItems[i]);
                 setState(() {
                   selectedButtonIndex = i;
                 });
-                widget.onTimeOfDaySelected(calendarItems[i]);
               },
               child: Text(
                 calendarItems[i],

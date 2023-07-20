@@ -92,7 +92,8 @@ class _ListHabitsScreenState extends State<ListHabitsScreen> {
         ),
         leading: IconButton(
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.pushNamedAndRemoveUntil(
+                context, 'mainScreen', (_) => false);
           },
           icon: Icon(Icons.arrow_back),
         ),

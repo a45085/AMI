@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../theme/style.dart';
+import '../utils/utils.dart';
 
 class DaysComponent extends StatefulWidget {
   final Function(DateTime) onDateSelected;
@@ -13,26 +14,15 @@ class DaysComponent extends StatefulWidget {
 }
 
 class _DaysComponentState extends State<DaysComponent> {
-  List<String> calendarItems = [
-    'Seg',
-    'Ter',
-    'Qua',
-    'Qui',
-    'Sex',
-    'Sáb',
-    'Dom',
-  ];
-
   DateTime currentDate = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
     List<Widget> widgets = <Widget>[];
-    for (var i = 0; i < 7; i++) {
+    for (var i = 0; i < daysWeek.length; i++) {
       DateTime day =
           currentDate.subtract(Duration(days: currentDate.weekday - i - 1));
       String formattedDate = day.day.toString();
-
       ButtonStyle buttonStyle = i == currentDate.weekday - 1
           ? homePageButtonStyle.copyWith(
               backgroundColor: MaterialStateProperty.all(myTheme.primaryColor),
@@ -47,16 +37,16 @@ class _DaysComponentState extends State<DaysComponent> {
               child: TextButton(
                 style: buttonStyle,
                 onPressed: () {
+                  widget.onDateSelected(day);
+                  widget.onWeekDay(daysWeek[i]);
                   setState(() {
                     currentDate = day;
                   });
-                  widget.onDateSelected(day);
-                  widget.onWeekDay(calendarItems[i]);
                 },
                 child: Column(
                   children: [
                     Text(
-                      calendarItems[i],
+                      daysWeek[i],
                       style: TextStyle(
                         fontFamily: "RobotoMono",
                         fontWeight: FontWeight.normal,

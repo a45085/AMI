@@ -6,6 +6,7 @@ import '../components/days_component.dart';
 import '../components/habit_component.dart';
 import '../firebaseConnection/database.dart';
 import '../theme/style.dart';
+import '../utils/utils.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
@@ -28,20 +29,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Future<Map<String, dynamic>?> getUser() async {
     return await databaseService.getUserInfo(user!);
-  }
-
-  String getSelectedButton() {
-    int currentHour = DateTime.now().hour;
-    String sel = "Diários";
-
-    if (currentHour >= 6 && currentHour < 12) {
-      sel = "Manhã"; // Morning
-    } else if (currentHour >= 12 && currentHour < 20) {
-      sel = "Tarde"; // Afternoon
-    } else {
-      sel = "Noite"; // Night
-    }
-    return sel;
   }
 
   void handleDateSelected(DateTime selectedDate) {
@@ -84,9 +71,9 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  Future<List<Widget>> habits(BuildContext context, String selectedWeekDay,
-      String selectedTimeDay) async {
+  Future<List<Widget>> habits(BuildContext context) async {
     List<Widget> widgets = [];
+    userInfo = await getUser();
     List<Map<String, dynamic>> selectedHabits = userInfo['selectedHabits'];
 
     bool hasMatchingHabits =
@@ -101,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
         var habitWeekdays = selectedHabits[i]['weekdays'];
         var habitTime = selectedHabits[i]['time'];
 
-        if (selectedTimeDay == "Diários" &&
+        if (selectedTimeOfDay == "Diários" &&
             (habitWeekdays.contains(selectedWeekDay) ||
                 habitWeekdays.isEmpty)) {
           widgets.add(
@@ -156,44 +143,6 @@ class _HomeScreenState extends State<HomeScreen> {
     return widgets;
   }
 
-  String currentMonthYear() {
-    DateTime currentDate = DateTime.now();
-    String month = currentDate.month.toString();
-    String year = currentDate.year.toString();
-    return '${getMonthName(month)} $year';
-  }
-
-  String getMonthName(String month) {
-    switch (month) {
-      case '1':
-        return 'Janeiro';
-      case '2':
-        return 'Fevereiro';
-      case '3':
-        return 'Março';
-      case '4':
-        return 'Abril';
-      case '5':
-        return 'Maio';
-      case '6':
-        return 'Junho';
-      case '7':
-        return 'Julho';
-      case '8':
-        return 'Agosto';
-      case '9':
-        return 'Setembro';
-      case '10':
-        return 'Outubro';
-      case '11':
-        return 'Novembro';
-      case '12':
-        return 'Dezembro';
-      default:
-        return '';
-    }
-  }
-
   String getHeaderText(DateTime selectedDate) {
     DateTime currentDate = DateTime.now();
     if (selectedDate.year == currentDate.year &&
@@ -217,14 +166,10 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-
-    String selectedButton = getSelectedButton();
+    String selectedButton = getSelectedButton()[0];
     handleTimeOfDaySelected(selectedButton);
-    getUser().then((result) {
-      setState(() {
-        userInfo = result;
-      });
-    });
+    DateTime currentDate = DateTime.now();
+    handleWeekDay(daysWeek[currentDate.weekday - 1]);
   }
 
   @override
@@ -289,7 +234,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 isInFormClass: false,
               ),
               FutureBuilder<List<Widget>>(
-                future: habits(context, selectedWeekDay, selectedTimeOfDay),
+                future: habits(context),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return CircularProgressIndicator();

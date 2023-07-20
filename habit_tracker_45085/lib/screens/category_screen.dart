@@ -12,13 +12,12 @@ class CategoryScreen extends StatelessWidget {
     List<Widget> widgets = [];
     Map<String, dynamic>? category =
         await databaseService.getCategoryById(categoryId);
-    var habitsId = category!['habitos'];
 
+    var habitsId = category!['habitos'];
     List<Map<String, dynamic>?> habits = [];
     for (var h in habitsId) {
       habits.add(await databaseService.getHabitById(h));
     }
-
     if (habits.isNotEmpty) {
       for (var h in habits) {
         var habitId = h!['id'];
@@ -65,6 +64,8 @@ class CategoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final category =
         ModalRoute.of(context)?.settings.arguments as List<dynamic>;
+
+    final categoryId = category[0] as String;
     final categoryName = category[1] as String;
 
     return Scaffold(
@@ -103,7 +104,7 @@ class CategoryScreen extends StatelessWidget {
             ),
             SizedBox(height: 20),
             FutureBuilder<List<Widget>>(
-              future: habits(context, category[0] as String),
+              future: habits(context, categoryId),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return CircularProgressIndicator();
