@@ -73,8 +73,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Future<List<Widget>> habits(BuildContext context) async {
     List<Widget> widgets = [];
-    userInfo = await getUser();
-    List<Map<String, dynamic>> selectedHabits = userInfo['selectedHabits'];
+
+    List<Map<String, dynamic>> selectedHabits = [];
+    try {
+      userInfo = await getUser();
+      selectedHabits = userInfo['selectedHabits'];
+    } catch (e) {}
 
     bool hasMatchingHabits =
         false; // Flag to check if there are matching habits
