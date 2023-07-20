@@ -153,7 +153,7 @@ class _HabitFormScreenState extends State<HabitFormScreen> {
                       children: [
                         SizedBox(height: 20),
                         Text(
-                          'Days of the Week',
+                          'Dias da semana',
                           style: TextStyle(
                             fontSize: 16,
                             fontFamily: "RobotoMono",

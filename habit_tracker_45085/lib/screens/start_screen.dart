@@ -46,109 +46,111 @@ class StartScreen extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.white,
         body: SafeArea(
-            child: Center(
-                child: Column(children: [
-          Stack(alignment: Alignment.center, children: <Widget>[
-            Image.asset('./assets/images/circle1.png'),
-            Text("Habit \n Tracker",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 45,
-                  color: Colors.white,
-                  fontFamily: "Inter",
-                  fontWeight: FontWeight.bold,
-                )),
-          ]),
+            child: SingleChildScrollView(
+          child: Center(
+              child: Column(children: [
+            Stack(alignment: Alignment.center, children: <Widget>[
+              Image.asset('./assets/images/circle1.png'),
+              Text("Habit \n Tracker",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 45,
+                    color: Colors.white,
+                    fontFamily: "Inter",
+                    fontWeight: FontWeight.bold,
+                  )),
+            ]),
 
-          //image
-          Image.asset(
-            './assets/images/startPage.png',
-            height: 320,
-            width: 320,
-          ),
+            //image
+            Image.asset(
+              './assets/images/startPage.png',
+              height: 320,
+              width: 320,
+            ),
 
-          const SizedBox(height: 10),
-          //google button
-          SizedBox(
-              height: 50, //height of button
-              width: 320, //width of button
+            const SizedBox(height: 10),
+            //google button
+            SizedBox(
+                height: 50, //height of button
+                width: 320, //width of button
 
-              child: TextButton(
-                style: ButtonStyle(
-                  foregroundColor:
-                      MaterialStateProperty.all<Color>(Colors.black),
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.white),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(38.0),
-                      side: BorderSide(
-                        color: Color(0xFFEBEAEC),
+                child: TextButton(
+                  style: ButtonStyle(
+                    foregroundColor:
+                        MaterialStateProperty.all<Color>(Colors.black),
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.white),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(38.0),
+                        side: BorderSide(
+                          color: Color(0xFFEBEAEC),
+                        ),
                       ),
                     ),
                   ),
-                ),
-                onPressed: () {
-                  handleSubmit(context);
-                },
-                child: Row(children: [
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Image.asset(
-                    './assets/images/google_logo.png',
-                    height: 20,
-                    width: 20,
-                  ),
-                  SizedBox(
-                    width: 30,
-                  ),
-                  Text('CONTINUAR COM O GOOGLE',
-                      style: TextStyle(
-                          fontFamily: "RobotoMono",
-                          fontWeight: FontWeight.normal,
-                          fontSize: 14))
-                ]),
-              )),
-          const SizedBox(height: 15),
-          //alternative text
-          Text("OU REGISTE COM O EMAIL",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 14,
-                color: greylettering,
-                fontFamily: "RobotoMono",
-                fontWeight: FontWeight.normal,
-              )),
-
-          const SizedBox(height: 15),
-          //register button
-          MyButton(
-              text: "REGISTAR",
-              onPressed: () {
-                Navigator.pushNamed(context, 'registration');
-              }),
-          //login
-          const SizedBox(height: 15),
-          Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Text('JÁ POSSUI UMA CONTA? ',
+                  onPressed: () {
+                    handleSubmit(context);
+                  },
+                  child: Row(children: [
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Image.asset(
+                      './assets/images/google_logo.png',
+                      height: 20,
+                      width: 20,
+                    ),
+                    SizedBox(
+                      width: 30,
+                    ),
+                    Text('CONTINUAR COM O GOOGLE',
+                        style: TextStyle(
+                            fontFamily: "RobotoMono",
+                            fontWeight: FontWeight.normal,
+                            fontSize: 14))
+                  ]),
+                )),
+            const SizedBox(height: 15),
+            //alternative text
+            Text("OU REGISTE COM O EMAIL",
+                textAlign: TextAlign.center,
                 style: TextStyle(
-                    fontFamily: "RobotoMono",
-                    fontWeight: FontWeight.normal,
-                    color: greylettering,
-                    fontSize: 14)),
-            GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(context, 'login');
-              },
-              child: Text('LOG IN',
+                  fontSize: 14,
+                  color: greylettering,
+                  fontFamily: "RobotoMono",
+                  fontWeight: FontWeight.normal,
+                )),
+
+            const SizedBox(height: 15),
+            //register button
+            MyButton(
+                text: "REGISTAR",
+                onPressed: () {
+                  Navigator.pushNamed(context, 'registration');
+                }),
+            //login
+            const SizedBox(height: 15),
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Text('JÁ POSSUI UMA CONTA? ',
                   style: TextStyle(
                       fontFamily: "RobotoMono",
                       fontWeight: FontWeight.normal,
-                      color: myTheme.primaryColor,
+                      color: greylettering,
                       fontSize: 14)),
-            ),
-          ]),
-        ]))));
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, 'login');
+                },
+                child: Text('LOG IN',
+                    style: TextStyle(
+                        fontFamily: "RobotoMono",
+                        fontWeight: FontWeight.normal,
+                        color: myTheme.primaryColor,
+                        fontSize: 14)),
+              ),
+            ]),
+          ])),
+        )));
   }
 }

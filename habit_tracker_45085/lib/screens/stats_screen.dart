@@ -16,29 +16,31 @@ class StatsScreen extends StatelessWidget {
       ),
       backgroundColor: Colors.white,
       body: SafeArea(
-          child: Center(
-              child: Column(children: [
-        Text(
-          'Estatísticas',
-          style: TextStyle(
-              fontFamily: "RobotoMono",
-              fontWeight: FontWeight.normal,
-              fontSize: 22),
-        ),
-        Image.asset(
-          './assets/images/stats.png',
-          height: 180, //height of image
-          width: MediaQuery.of(context).size.width,
-        ),
-        SizedBox(
-          height: 15,
-        ),
-        Image.asset(
-          './assets/images/statsPremium.png',
-          height: 390, //height of image
-          width: MediaQuery.of(context).size.width,
-        ),
-      ]))),
+          child: SingleChildScrollView(
+        child: Center(
+            child: Column(children: [
+          Text(
+            'Estatísticas',
+            style: TextStyle(
+                fontFamily: "RobotoMono",
+                fontWeight: FontWeight.normal,
+                fontSize: 22),
+          ),
+          Image.asset(
+            './assets/images/stats.png',
+            height: 180, //height of image
+            width: MediaQuery.of(context).size.width,
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Image.asset(
+            './assets/images/statsPremium.png',
+            height: 390, //height of image
+            width: MediaQuery.of(context).size.width,
+          ),
+        ])),
+      )),
     );
   }
 }

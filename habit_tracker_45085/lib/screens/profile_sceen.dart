@@ -64,145 +64,147 @@ class _ProfileScreenState extends State<ProfileScreen> {
       ),
       backgroundColor: Colors.white,
       body: SafeArea(
-          child: Center(
-              child: Column(children: [
-        Text(
-          'Conta',
-          style: TextStyle(
-              fontFamily: "RobotoMono",
-              fontWeight: FontWeight.normal,
-              fontSize: 22),
-        ),
-        SizedBox(
-          height: 20,
-        ),
-        Image.asset(
-          './assets/images/profile.png',
-          height: 180, //height of image
-          width: MediaQuery.of(context).size.width,
-        ),
-        SizedBox(height: 20),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Container(
-            padding: const EdgeInsets.all(17),
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.grey),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Row(
-              children: [
-                Text(
-                  'Notificações',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontFamily: "RobotoMono",
-                    fontWeight: FontWeight.normal,
-                  ),
-                ),
-                Spacer(),
-                Switch(
-                    // This bool value toggles the switch.
-                    value: true,
-                    activeColor: myTheme.primaryColor,
-                    onChanged: (bool value) {
-                      // This is called when the user toggles the switch.
-                    }),
-              ],
-            ),
+          child: SingleChildScrollView(
+        child: Center(
+            child: Column(children: [
+          Text(
+            'Conta',
+            style: TextStyle(
+                fontFamily: "RobotoMono",
+                fontWeight: FontWeight.normal,
+                fontSize: 22),
           ),
-        ),
-        SizedBox(height: 15),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Container(
-            padding: const EdgeInsets.all(17),
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.grey),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Row(
-              children: [
-                Text(
-                  'Língua',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontFamily: "RobotoMono",
-                    fontWeight: FontWeight.normal,
-                  ),
-                ),
-                Spacer(),
-                DropdownButton<String>(
-                  iconEnabledColor: myTheme.primaryColor,
-                  value:
-                      'Português', // Replace with your actual selected language value
-                  onChanged: (String? newValue) {
-                    // Implement the logic for language selection here
-                  },
-                  items: <String>[
-                    'Português',
-                    'Inglês',
-                  ] // Replace with your language options
-                      .map<DropdownMenuItem<String>>((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
-                    );
-                  }).toList(),
-                ),
-              ],
-            ),
+          SizedBox(
+            height: 20,
           ),
-        ),
-        SizedBox(height: 15),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Container(
-            padding: const EdgeInsets.all(17),
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.grey),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Row(
-              children: [
-                Text(
-                  'Sobre a App',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontFamily: "RobotoMono",
-                    fontWeight: FontWeight.normal,
-                  ),
-                ),
-                Spacer(),
-                IconButton(
-                  icon: Icon(Icons.arrow_forward_rounded),
-                  color: myTheme.primaryColor,
-                  onPressed: () {
-                    _showAboutDialog(context);
-                  },
-                ),
-              ],
-            ),
+          Image.asset(
+            './assets/images/profile.png',
+            height: 180, //height of image
+            width: MediaQuery.of(context).size.width,
           ),
-        ),
-        SizedBox(height: 30),
-        SizedBox(
-            height: 55, //height of button
-            width: 355,
-            //width of button
-            child: TextButton(
-                style: endSessionButtonStyle,
-                onPressed: () {
-                  signOut();
-                  Navigator.pushNamedAndRemoveUntil(
-                      context, 'startPage', (_) => false);
-                },
-                child: Text("Terminar sessão",
+          SizedBox(height: 20),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Container(
+              padding: const EdgeInsets.all(17),
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.grey),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Row(
+                children: [
+                  Text(
+                    'Notificações',
                     style: TextStyle(
-                        fontFamily: "RobotoMono",
-                        fontWeight: FontWeight.normal,
-                        fontSize: 18)))),
-      ]))),
+                      fontSize: 18,
+                      fontFamily: "RobotoMono",
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                  Spacer(),
+                  Switch(
+                      // This bool value toggles the switch.
+                      value: true,
+                      activeColor: myTheme.primaryColor,
+                      onChanged: (bool value) {
+                        // This is called when the user toggles the switch.
+                      }),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(height: 15),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Container(
+              padding: const EdgeInsets.all(17),
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.grey),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Row(
+                children: [
+                  Text(
+                    'Língua',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontFamily: "RobotoMono",
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                  Spacer(),
+                  DropdownButton<String>(
+                    iconEnabledColor: myTheme.primaryColor,
+                    value:
+                        'Português', // Replace with your actual selected language value
+                    onChanged: (String? newValue) {
+                      // Implement the logic for language selection here
+                    },
+                    items: <String>[
+                      'Português',
+                      'Inglês',
+                    ] // Replace with your language options
+                        .map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(height: 15),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Container(
+              padding: const EdgeInsets.all(17),
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.grey),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Row(
+                children: [
+                  Text(
+                    'Sobre a App',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontFamily: "RobotoMono",
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                  Spacer(),
+                  IconButton(
+                    icon: Icon(Icons.arrow_forward_rounded),
+                    color: myTheme.primaryColor,
+                    onPressed: () {
+                      _showAboutDialog(context);
+                    },
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(height: 30),
+          SizedBox(
+              height: 55, //height of button
+              width: 355,
+              //width of button
+              child: TextButton(
+                  style: endSessionButtonStyle,
+                  onPressed: () {
+                    signOut();
+                    Navigator.pushNamedAndRemoveUntil(
+                        context, 'startPage', (_) => false);
+                  },
+                  child: Text("Terminar sessão",
+                      style: TextStyle(
+                          fontFamily: "RobotoMono",
+                          fontWeight: FontWeight.normal,
+                          fontSize: 18)))),
+        ])),
+      )),
     );
   }
 }

@@ -61,7 +61,7 @@ class CategoriesScreen extends StatelessWidget {
         ),
         leading: IconButton(
           onPressed: () {
-            Navigator.pushNamed(context, 'mainScreen');
+            Navigator.pop(context);
           },
           icon: Icon(Icons.close),
         ),
